@@ -12,3 +12,7 @@ You must login before you call basic APIs, for example
 http://127.0.0.1:9994/api/test/generatestring
 
 Also, this example shows how to work with IoC (Microsoft.Practices.Unity).
+
+WebApiHelpPageSelfHost Project can be added to the solution if you need project documentation.
+https://code.msdn.microsoft.com/ASPNET-Web-API-Help-Page-40e1a68e
+It's based on Microsoft.AspNet.WebApi.HelpPage.
