@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OwinExample.Controllers.AccountController.Structures;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,11 @@ using System.Web.Http;
 namespace OwinExample.Controllers
 {
     [RoutePrefix("api/test")]
-    //[AuthorizeRouteManager(Roles = "admin,user")]
+    [AuthorizeOwinExample(Roles = "admin,user")]
     public class TestController : ApiController
     {
         [HttpGet]
-        [Route("generateString")]
+        [Route("generatestring")]
         public IHttpActionResult GenerateString()
         {
             return Json("Hello World");

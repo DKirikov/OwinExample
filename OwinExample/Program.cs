@@ -1,4 +1,5 @@
 ﻿using Microsoft.Owin.Hosting;
+using Microsoft.Practices.Unity.WebApi;
 using Owin;
 using OwinExample.Controllers;
 using System;
@@ -7,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Microsoft.Practices.Unity;
+using OwinExample.Controllers.AccountController.Structures;
 
 namespace OwinExample
 {
@@ -21,6 +24,7 @@ namespace OwinExample
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            config.DependencyResolver = new UnityDependencyResolver(IoC.Instance);
             appBuilder.UseWebApi(config); 
         }
     }
@@ -34,8 +38,11 @@ namespace OwinExample
 
         public static void StartAsWebApp()
         {
-            string server = "http://+:9994";
+            var accountSessionManager = new AccountSessionManager();
+            IoC.Instance.RegisterInstance<IAccountSessions>(accountSessionManager);
+            IoC.Instance.RegisterInstance<IAccountSessionManager>(accountSessionManager);
 
+            string server = "http://+:9994";
             Console.WriteLine(DateTime.UtcNow + ": Starting application {0}...", server);
 
             using (WebApp.Start<Startup>(server))
