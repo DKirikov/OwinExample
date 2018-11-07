@@ -1,7 +1,7 @@
 Requirements: VS 2013, .NET Framework 4.5.1
 
 Description:
-This example shows how to work with Microsoft.Owin (Open Web Interface for .NET with ASP.NET Core).
+This example shows how to work with project Katana & Microsoft.Owin (Open Web Interface for .NET).
 The example has an authorization system. It works by using cookies.
 It contains APIs for login & logout:
 http://127.0.0.1:9994/api/account/login?email=test0@gmail.com&password=somePassword0
